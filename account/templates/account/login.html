@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | Wedding Planner</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #e6ffe6, #fffaf0);
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    form {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2f5f3f;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .toggle-password {
+      position: relative;
+      float: right;
+      top: -35px;
+      right: 10px;
+      cursor: pointer;
+    }
+
+    .btn {
+      background-color: #2f8f4f;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      background-color: white;
+      color: #2f8f4f;
+      border: 2px solid #2f8f4f;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+
+    .link-center {
+      display: block;
+      text-align: center;
+      margin-top: 12px;
+      color: #2f8f4f;
+      text-decoration: none;
+    }
+
+    .link-center:hover {
+      text-decoration: underline;
+    }
+
+    .forgot-link {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      color: green;
+      text-decoration: none;
+    }
+
+    .forgot-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <form method="POST" autocomplete="off">
+    {% csrf_token %}
+
+    <h1 style="text-align:center; color:#2f8f4f; font-size: 28px; margin-bottom: 5px;">💍 Wedding Planner</h1>
+    <h2>Login</h2>
+
+    <label>Email</label>
+    <input type="email" name="email" required autocomplete="off">
+
+    <label>Password</label>
+    <input type="password" name="password" id="password" required autocomplete="new-password">
+    <span class="toggle-password" onclick="togglePassword()">👁️</span>
+
+    <button type="submit" class="btn">Login</button>
+
+    <a href="{% url 'forgot_password' %}" class="forgot-link">Forgot Password?</a>
+    <a href="{% url 'register' %}" class="link-center">← Back to Register Page</a>
+  </form>
+
+  <script>
+    function togglePassword() {
+      const password = document.getElementById("password");
+      password.type = password.type === "password" ? "text" : "password";
+    }
+
+    {% if messages %}
+      {% for message in messages %}
+        alert("{{ message }}");
+      {% endfor %}
+    {% endif %}
+  </script>
+</body>
+</html>

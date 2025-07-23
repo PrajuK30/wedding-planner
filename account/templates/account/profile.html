@@ -1,0 +1,71 @@
+<!-- profile.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Profile</title>
+    <style>
+        body {
+            background: #f0fdf4;
+            font-family: Arial, sans-serif;
+            padding: 50px;
+        }
+        .profile-container {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+            text-align: center;
+        }
+        .tick {
+            font-size: 40px;
+            color: green;
+        }
+        .info {
+            text-align: left;
+            margin-top: 20px;
+        }
+        .info p {
+            margin: 8px 0;
+        }
+        .btn-edit {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .back-link {
+            display: block;
+            margin-top: 15px;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="tick">✅</div>
+        <h1 style="text-align:center; color:#2f8f4f; font-size: 28px; margin-bottom: 5px;">💍 Wedding Planner</h1>
+        <h2>Your Profile</h2>
+        <div class="info">
+            <p><strong>Name:</strong> {{ user.first_name }} {{ user.middle_name }} {{ user.last_name }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <p><strong>Mobile:</strong> {{ user.mobile|default:"Not Provided" }}</p>
+            <p><strong>Location:</strong> {{ user.location|default:"Not Provided" }}</p>
+            <p><strong>Pincode:</strong> {{ user.pincode|default:"Not Provided" }}</p>
+            <p><strong>Age:</strong> {{ user.age|default:"Not Provided" }}</p>
+            <p><strong>Gender:</strong> {{ user.gender|default:"Not Provided" }}</p>
+            <p><strong>Role:</strong> {{ user.role|default:"Not Provided" }}</p>
+        </div>
+
+        <form action="{% url 'edit_profile' %}" method="get">
+            <button class="btn-edit" type="submit">Edit Profile</button>
+        </form>
+        <a class="back-link" href="{% url 'dashboard' %}">← Back to Dashboard</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% if messages %}
+  <div id="popup-message" style="
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #e6ffe6;
+      color: #2d572c;
+      padding: 15px;
+      text-align: center;
+      z-index: 9999;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      font-size: 18px;
+      font-weight: bold;
+  ">
+    {% for message in messages %}
+      {{ message }}
+    {% endfor %}
+    <br>
+    <button onclick="document.getElementById('popup-message').style.display='none'" style="
+        margin-top: 10px;
+        background-color: #2d572c;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        cursor: pointer;
+    ">
+      OK
+    </button>
+  </div>
+{% endif %}

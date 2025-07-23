@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Password Reset Successful</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #e6ffe6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        .popup {
+            text-align: center;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 0 15px rgba(0, 128, 0, 0.3);
+        }
+        .popup h2 {
+            font-size: 28px;
+            color: darkgreen;
+        }
+        .emoji {
+            font-size: 50px;
+            margin: 15px 0;
+        }
+        .btn {
+            padding: 10px 25px;
+            background-color: darkgreen;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+        .btn:hover {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="popup">
+        <div class="emoji">🎉</div>
+        <h2>Password Reset Successfully!</h2>
+        <p>You can now log in with your new password.</p>
+        <form action="{% url 'login' %}">
+            <button type="submit" class="btn">OK</button>
+        </form>
+    </div>
+</body>
+</html>

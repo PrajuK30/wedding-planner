@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Success</title>
+    <style>
+        body {
+            background-color: #f0fff4;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .popup {
+            text-align: center;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 0 15px rgba(0, 128, 0, 0.2);
+        }
+        .popup h2 {
+            color: green;
+            font-size: 26px;
+        }
+        .emoji {
+            font-size: 50px;
+            margin: 15px 0;
+        }
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+        .btn {
+            padding: 10px 25px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .btn:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="popup">
+        <h2>🎉 Registered Successfully!</h2>
+        <p>Check your mail and enter the OTP to verify your account.</p>
+        <a href="{% url 'verify_otp' %}" class="btn">Go to OTP Page</a>
+    </div>
+</body>
+</html>

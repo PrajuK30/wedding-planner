@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+        body { font-family: Arial; background: #f4f4f4; margin: 0; }
+        .navbar {
+            background-color: #2e7d32;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .navbar .profile {
+            margin-right: 20px;
+            font-weight: bold;
+        }
+        .navbar button {
+            background-color: #e53935;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .welcome {
+            text-align: center;
+            margin-top: 100px;
+            font-size: 32px;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="profile">
+            <a href="{% url 'profile' %}" style="color:white; text-decoration:none;">👤 {{ user.first_name }}</a>
+        </div>
+        <form method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+
+    <div class="welcome">
+        <p>🎉 Welcome to Dashboard</p>
+    </div>
+
+    {% if messages %}
+      <script>
+          {% for message in messages %}
+              alert("{{ message }}");
+          {% endfor %}
+      </script>
+    {% endif %}
+</body>
+</html>
