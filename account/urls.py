@@ -22,6 +22,8 @@ urlpatterns = [
     path('reset-password/', views.reset_password_otp_view, name='reset_password'),  # ✅ Use this
     
     path('reset-password-done/', views.reset_done, name='reset_done'),
+    path('logout-success/', views.logout_success, name='logout_success'),
+
 
 
 

@@ -141,7 +141,11 @@ def login_view(request):
 # Logout View
 def logout_view(request):
     logout(request)
+    messages.success(request, "You are successfully logged out! You can login again.")
     return redirect('login')
+def logout_success(request):
+    return render(request, 'account/logout_success.html')
+
 
 # Success Pages
 def register_success(request):
